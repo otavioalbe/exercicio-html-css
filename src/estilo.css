@@ -3,6 +3,8 @@ input{
     width: 70%;
     padding: 10px;
     margin: 0px 0px 20px 0px;
+    outline: none;
+    border: 2px solid #cfcfcf;
 }
 
 #cadeado_login{
@@ -27,6 +29,7 @@ input{
 }
 
 .container{
+    font-family: 'Lato', sans-serif;;
     background-color: #19B2AC;
     display: flex;
     justify-content: center;
