@@ -19,6 +19,7 @@ input{
     width: 78%;
     border-radius: 3px;
     margin: 20px 0px 40px 0px;
+    cursor: pointer;
 
     &:hover{
         background-image: linear-gradient(to bottom right, #5d00ff, #3b52ff);
