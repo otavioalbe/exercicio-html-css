@@ -1,19 +1,28 @@
-const novoEmail = document.getElementById("novoEmail");
-const formularioEmail = document.getElementById("formularioEmail")
-const cancelarEmail = document.getElementById("cancelarEmail")
-const checkboxes = document.querySelectorAll('input[type="checkbox"]')
+const novoEmail = document.getElementById('novoEmail');
+const formularioEmail = document.getElementById('formularioEmail');
+const cancelarEmail = document.getElementById('cancelarEmail');
+const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+const deletarEmail = document.getElementById('deletarEmail');
 
 novoEmail.addEventListener('click', function(){
-    formularioEmail.classList.remove('hidden')
+    formularioEmail.classList.remove('hidden');
 });
 
 cancelarEmail.addEventListener('click', function(){
-    formularioEmail.classList.add('hidden')
+    formularioEmail.classList.add('hidden');
 })
 
 checkboxes.forEach((checkbox)=> {
     checkbox.addEventListener('change', function(){
         const fila = checkbox.closest('tr');
         checkbox.checked ? fila.classList.add('bg-yellow-200') : fila.classList.remove('bg-yellow-200');  
+    })
+})
+
+checkboxes.forEach((checkbox)=> {
+    deletarEmail.addEventListener('click', function(){
+        const fila = checkbox.closest('tr');
+        if(checkbox.checked)
+            fila.remove();
     })
 })
