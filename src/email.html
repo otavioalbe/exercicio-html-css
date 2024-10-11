@@ -19,9 +19,11 @@
             <div class="flex justify-between items-center">
                 <h1 class="text-[#55D8CA] text-xl font-semibold">Caixa de entrada</h1>
                 <div class="text-[#6F53E9] font-semibold">
-                    <i class="fa-solid fa-plus fa-lg"></i>
-                    NOVO EMAIL
-                    <i class="fa-solid fa-trash fa-lg ml-4 text-[#D50000]"></i>
+                    <div id="novoEmail" class="inline-block cursor-pointer">
+                        <i class="fa-solid fa-plus fa-lg"></i>
+                        <h2 class="inline-block">NOVO EMAIL</h2>
+                    </div>
+                    <i id="deletarEmail" class="fa-solid fa-trash fa-lg ml-4 text-[#D50000] cursor-pointer"></i>
                 </div>
             </div>
             <div class="w-full h-full bg-gray-300">
@@ -63,5 +65,32 @@
                 </table>
             </div>
         </div>
+
+            <!-- Formulário de Novo Email -->
+        <div id="formularioEmail" class="fixed top-0 w-full h-full bg-gray-900 bg-opacity-50 flex justify-center items-center">
+            <div class="bg-white p-6 rounded-lg w-1/2">
+                <h2 class="text-xl font-bold mb-4">Compor Novo Email</h2>
+                <form id="emailForm">
+                    <div class="mb-4">
+                        <label for="remetente" class="text-sm font-bold">Remetente:</label>
+                        <input type="email" id="remetente" class="w-full p-2 border border-gray-300 rounded" placeholder="exemplo@email.com" required>
+                    </div>
+                    <div class="mb-4">
+                        <label for="assunto" class="text-sm font-bold mb-2">Assunto:</label>
+                        <input type="text" id="assunto" class="w-full p-2 border border-gray-300 rounded" placeholder="Escreva seu assunto aqui." required>
+                    </div>
+                    <div class="mb-4">
+                        <label for="mensagem" class="text-sm font-bold mb-2">Mensagem:</label>
+                        <textarea id="mensagem" class="w-full p-2 border border-gray-300 rounded h-32" placeholder="Escreva sua mensagem aqui." required></textarea>
+                    </div>
+                    <div class="flex justify-end">
+                        <button type="button" id="cancelarEmail" class="mr-4 bg-red-500 text-white px-4 py-2 rounded">Cancelar</button>
+                        <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded">Enviar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <script type="text/javascript" src="/js/scriptEmail.js"></script>
     </body>
 </html>
