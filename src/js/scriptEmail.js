@@ -16,22 +16,8 @@ cancelarEmail.addEventListener('click', function(){
     novoEmailPagina.classList.add('hidden');
 })
 
-// Quando selecionar a fila, aparecer amarelo ou tirar quando deselecionar a checkbox
-checkboxes.forEach((checkbox)=> {
-    checkbox.addEventListener('change', function(){
-        const fileira = checkbox.closest('tr');
-        checkbox.checked ? fileira.classList.add('bg-yellow-200') : fileira.classList.remove('bg-yellow-200');  
-    })
-})
-
-// Remover a fileira (email) selecionado apertando na lixeira
-checkboxes.forEach((checkbox)=> {
-    deletarEmail.addEventListener('click', function(){
-        const fileira = checkbox.closest('tr');
-        if(checkbox.checked)
-            fileira.remove();
-    })
-})
+// Aplicar eventos aos checkboxes já existentes
+checkboxes.forEach(adicionarEventosCheckbox);
 
 // Quando enviado o formulário aparece o email na caixa de entrada
 formularioEmail.addEventListener('submit', function(e){
@@ -49,7 +35,28 @@ formularioEmail.addEventListener('submit', function(e){
 
     tableBody.appendChild(novaFileira);
 
+    // Adiciona eventos ao novo checkbox
+    const novoCheckbox = novaFileira.querySelector('input[type="checkbox"]');
+    adicionarEventosCheckbox(novoCheckbox); // Adiciona os eventos de seleção e exclusão
+
     // Limpa o formulário e fechar a página de formulário do email
     formularioEmail.reset();
     novoEmailPagina.classList.add('hidden');
 })
+
+// Função para adicionar as novas checkboxes para seleção e exclusão
+function adicionarEventosCheckbox(checkbox){
+    // Evento para mudar a cor ao selecionar o email
+    checkbox.addEventListener('change', function(){
+        const fileira = checkbox.closest('tr');
+        checkbox.checked ? fileira.classList.add('bg-yellow-200') : fileira.classList.remove('bg-yellow-200');  
+    });
+
+    // Evento para remover o email selecionado
+    deletarEmail.addEventListener('click', function(){
+        const fileira = checkbox.closest('tr');
+        if(checkbox.checked) {
+            fileira.remove();
+        }
+    });
+}
